@@ -5,6 +5,6 @@
  */
 public class TestInnerClass {
     class InnerClass{
-        
+
     }
 }

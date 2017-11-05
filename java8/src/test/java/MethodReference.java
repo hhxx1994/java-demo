@@ -1,6 +1,4 @@
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.junit.Test;
 
 import java.util.*;
@@ -58,19 +56,20 @@ public class MethodReference {
 
     @Test
     public void testGuavaOptional() {
-        Apple apple = null;
-        com.google.common.base.Optional<Apple> appleOptional = com.google.common.base.Optional.fromNullable(apple);
-        String s = appleOptional.transform(Apple::getColor).transform(String::toUpperCase).orNull();
-        System.out.println(s);
+        Apple apple = new Apple();
+        apple.weight=10;
+       // com.google.common.base.Optional<Apple> appleOptional = com.google.common.base.Optional.fromNullable(apple);
+        //String s = appleOptional.transform(Apple::getColor).transform(String::toUpperCase).orNull();
+        //System.out.println(s);
 
     }
 
-    @Data
+
     @AllArgsConstructor
     @NoArgsConstructor
     class Apple {
-        private String color;
-        private Integer weight;
+        @Getter @Setter  private String color;
+        @Getter @Setter private Integer weight;
 
         public Apple(Integer weight) {
             this.weight = weight;

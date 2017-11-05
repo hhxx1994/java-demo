@@ -1,18 +1,19 @@
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author hhx
- * @date 2017/11/5 9:41
- * @description
+ *
  */
 public class TestVolatile {
 
     @Test
-    public void testVolatilt() throws Exception{
+    public void testVolatile() throws Exception{
         MyRunnable myRunnable=new MyRunnable();
         new Thread(myRunnable).start();
         Thread.sleep(3000);
-        myRunnable.cancle();
+        myRunnable.cancel();
     }
 
     class MyRunnable implements Runnable{
@@ -23,10 +24,31 @@ public class TestVolatile {
                 System.out.println("Running ....");
             }
         }
-        public void cancle(){
+        public void cancel(){
             cancle=true;
         }
     }
 
+
+    class NoVolatileThread extends Thread {
+        private volatile boolean canceled;
+        private void cancel(){
+            canceled =true;
+        }
+        @Override
+        public void run() {
+            while (!canceled){
+                //doSomeThings
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception{
+        NoVolatileThread noVolatileThread = new TestVolatile().new NoVolatileThread();
+        noVolatileThread.start();
+        TimeUnit.SECONDS.sleep(3);
+        noVolatileThread.cancel();
+        System.out.println("cancel");
+    }
 
 }
