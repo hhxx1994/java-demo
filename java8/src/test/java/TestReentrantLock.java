@@ -22,45 +22,58 @@ public class TestReentrantLock {
         thread2.join();
     }
 
+    @Test
+    public void testDoubleUnlock() throws Exception {
+        Resource resource = new Resource();
+        Thread thread = new Thread(resource::doubleUnlock);
+        thread.start();
+        thread.join();
+
+    }
+
     class Resource {
         private Lock lock = new ReentrantLock();
         private Condition condition = lock.newCondition();
 
-        public void produce() {
-            try {
-                while (true) {
+        public void doubleUnlock() {
+            lock.lock();
+            lock.lock();
+            System.out.println("lock");
+            lock.unlock();
+            lock.unlock();
+        }
 
+        public void produce() {
+            while (true) {
+                try {
                     lock.tryLock(1, TimeUnit.SECONDS);
                     condition.signal();
                     System.out.println("produce");
                     TimeUnit.SECONDS.sleep(1);
                     condition.await();
+                } catch (InterruptedException interruptedException) {
+                    interruptedException.printStackTrace();
+                } finally {
                     lock.unlock();
                 }
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            } finally {
-                lock.unlock();
             }
         }
 
         public void consume() {
-            try {
-                while (true) {
+            while (true) {
+                try {
                     lock.tryLock(1, TimeUnit.SECONDS);
                     System.out.println("consume");
                     TimeUnit.SECONDS.sleep(1);
                     condition.signal();
                     condition.await();
+                } catch (InterruptedException interruptedException) {
+                    interruptedException.printStackTrace();
+                } finally {
                     lock.unlock();
                 }
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            } finally {
-                lock.unlock();
             }
 
         }
-
     }
 }
