@@ -10,7 +10,7 @@ import java.util.Objects;
 public class TestThread {
     static  Integer integer=new Integer(10);
     @Test
-    public static void testInterrupt()throws Exception{
+    public  void testInterrupt()throws Exception{
 
         Thread thread = new Thread(() -> {
             try {
@@ -38,7 +38,7 @@ public class TestThread {
     }
 
     public static void main(String[] args) throws Exception{
-        testInterrupt();
+        //testInterrupt();
     }
     public static User user=new User();
     @Test
@@ -48,6 +48,12 @@ public class TestThread {
                 System.out.println(user.toString());
             }
         }).start();
-
+   }
+   @Test
+   public void testStartTwoTimes(){
+       Thread thread = new Thread(() -> System.out.println("thread"));
+       thread.start();
+       thread.start();
+       while(true);
    }
 }

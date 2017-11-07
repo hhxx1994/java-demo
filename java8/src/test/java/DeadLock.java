@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -8,7 +7,7 @@ public class DeadLock {
     private Object left=new Object();
     private Object right=new Object();
 
-    public void leftRigth(){
+    public void leftRight(){
         synchronized (left){
             try {
                 TimeUnit.SECONDS.sleep(3);
@@ -32,7 +31,7 @@ public class DeadLock {
     public static void main(String[] args)throws Exception {
         DeadLock deadLock = new DeadLock();
         new Thread(()->{
-            deadLock.leftRigth();
+            deadLock.leftRight();
         }).start();
         TimeUnit.SECONDS.sleep(1);
         new Thread(()->{
