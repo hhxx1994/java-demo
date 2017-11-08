@@ -76,4 +76,7 @@ public class TestReentrantLock {
 
         }
     }
+    public void testReentranLockFair(){
+
+    }
 }
