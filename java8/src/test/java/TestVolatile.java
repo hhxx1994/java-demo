@@ -50,5 +50,11 @@ public class TestVolatile {
         noVolatileThread.cancel();
         System.out.println("cancel");
     }
+    @Test
+    public void TestIntegerPlusPuls(){
+        Integer a=0;
+        a++;
+        System.out.println(a);
+    }
 
 }
