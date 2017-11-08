@@ -9,6 +9,7 @@ import java.util.Objects;
  */
 public class TestThread {
     static  Integer integer=new Integer(10);
+
     @Test
     public  void testInterrupt()throws Exception{
 
@@ -41,6 +42,7 @@ public class TestThread {
         //testInterrupt();
     }
     public static User user=new User();
+
     @Test
    public void testThreadStopUnsafe(){
         new Thread(()->{

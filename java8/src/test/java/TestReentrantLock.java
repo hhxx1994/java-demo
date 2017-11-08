@@ -25,7 +25,7 @@ public class TestReentrantLock {
     @Test
     public void testDoubleUnlock() throws Exception {
         Resource resource = new Resource();
-        Thread thread = new Thread(resource::doubleUnlock);
+        Thread thread = new Thread(resource::consume);
         thread.start();
         thread.join();
 
