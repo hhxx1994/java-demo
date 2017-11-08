@@ -30,11 +30,12 @@ public class LockUtils {
             countLock = lockMap.get(key);
             if(countLock == null){
                 lock = new ReentrantLock();
-                lockMap.put(key,new CountLock(lock));
+                countLock = new CountLock(lock);
+                lockMap.put(key, countLock);
             }else {
                 lock=countLock.getLock();
-                countLock.countIncrease();
             }
+            countLock.countIncrease();
         }finally {
             LOCK.unlock();
         }
@@ -44,7 +45,7 @@ public class LockUtils {
     public static void removeLock(String key){
         try {
             LOCK.lock();
-            CountLock countLock = lockMap.remove(key);
+            CountLock countLock = lockMap.get(key);
             if(countLock.decreaseAndGet() == 0){
                 lockMap.remove(key);
             }
