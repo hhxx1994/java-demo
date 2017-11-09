@@ -1,6 +1,4 @@
 import java.util.*;
-import java.util.concurrent.Callable;
-import java.util.function.Function;
 
 /**
  * @author haoxing_h
@@ -11,24 +9,14 @@ public class Cron {
     private static List<Set<Task>> tasks = new ArrayList<>(LENGTH);
     static {
         for(int i=0;i<LENGTH;i++){
-            tasks.add(new HashSet<>());
+            tasks.add(Collections.synchronizedSet(new HashSet<>()));
         }
     }
-
-    public static int getCurrent() {
-        return current;
-    }
-
-    public static void setCurrent(int current) {
-        Cron.current = current;
-    }
-
-    public static void currentMove() {
+    private static void currentMove() {
         if (++current == LENGTH) {
             current = 0;
         }
     }
-
     public static void addTask(Runnable function, int time) {
         int total = time + current;
         int cycleNum = total / LENGTH;
@@ -36,10 +24,9 @@ public class Cron {
         Task task = new Task(cycleNum, function);
         Set<Task> set = Cron.tasks.get(index);
         set.add(task);
-
     }
 
-    public static void runTask() {
+    private static void runTask() {
         Set<Task> set = tasks.get(current);
         Iterator<Task> iterator = set.iterator();
         while (iterator.hasNext()){
@@ -66,10 +53,9 @@ public class Cron {
     }
 
 
-    static class Task {
+    private static class Task {
         private int cycleNum;
         private Runnable function;
-
         public Task(int cycleNum, Runnable function) {
             this.cycleNum = cycleNum;
             this.function = function;
