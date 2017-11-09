@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * @author haoxing_h
  */
-public class Cron {
+public class CronUtils {
     public static final int LENGTH = 3600;
     private static int current = 0;
     private static List<Set<Task>> tasks = new ArrayList<>(LENGTH);
@@ -11,6 +11,7 @@ public class Cron {
         for(int i=0;i<LENGTH;i++){
             tasks.add(Collections.synchronizedSet(new HashSet<>()));
         }
+        run();
     }
     private static void currentMove() {
         if (++current == LENGTH) {
@@ -22,7 +23,7 @@ public class Cron {
         int cycleNum = total / LENGTH;
         int index = total % LENGTH;
         Task task = new Task(cycleNum, function);
-        Set<Task> set = Cron.tasks.get(index);
+        Set<Task> set = CronUtils.tasks.get(index);
         set.add(task);
     }
 
@@ -41,7 +42,7 @@ public class Cron {
     }
 
 
-    public static void run() {
+    private static void run() {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
