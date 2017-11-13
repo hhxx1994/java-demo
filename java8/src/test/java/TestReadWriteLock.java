@@ -27,6 +27,10 @@ public class TestReadWriteLock {
 
         }
     }
+    @Test
+    public void testWriteLock(){
+
+    }
 
     class Resource {
         ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
