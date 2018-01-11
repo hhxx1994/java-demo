@@ -22,4 +22,16 @@ public class SychonizedTest {
         i++;
     }
 
+    /**
+     * Description:
+     *
+     * @author huang.hao
+     * @since 2018-01-10
+     */
+    public static class VolatileTest {
+        private volatile  int i=0;
+        public void test(){
+            i++;
+        }
+    }
 }
