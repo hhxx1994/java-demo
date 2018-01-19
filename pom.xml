@@ -40,6 +40,13 @@
                 <artifactId>cglib</artifactId>
                 <version>3.2.5</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>4.3.13.RELEASE</version>
+            </dependency>
+
 
 
 
