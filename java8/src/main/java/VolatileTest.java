@@ -14,4 +14,6 @@ public class VolatileTest {
     public void read(){
         System.out.println(i);
     }
+
+
 }
