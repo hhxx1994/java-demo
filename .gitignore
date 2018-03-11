@@ -1,3 +1,7 @@
 *.iml
 .idea/**
 *.class
+java.hprof.*
+*.hprof.*
+*.hprof
+**/target/**
