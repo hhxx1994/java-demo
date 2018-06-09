@@ -30,6 +30,7 @@ public class TestCount {
 
         System.out.println("time is " + getTime(a, 1000, this::count_num));
 
+
     }
 
     public long getTime(int[] array, long time, Function<int[], Long> function) {
@@ -64,7 +65,6 @@ public class TestCount {
                 tmp++;
             }
         long end2 = System.currentTimeMillis();
-
         System.out.println(end - start);
         System.out.println(end2 - end);
 

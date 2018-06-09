@@ -22,7 +22,7 @@ public class CompletableFutureTest {
             } catch (InterruptedException e) {
 
             }
-            int i = 1 / 0;
+           // int i = 1 / 0;
             return 100;
         });
         future.join();
