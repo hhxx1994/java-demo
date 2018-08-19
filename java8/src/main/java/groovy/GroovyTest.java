@@ -1,7 +1,6 @@
 package groovy;
 
 import groovy.lang.Binding;
-import groovy.lang.Script;
 import groovy.util.GroovyScriptEngine;
 
 public class GroovyTest {
