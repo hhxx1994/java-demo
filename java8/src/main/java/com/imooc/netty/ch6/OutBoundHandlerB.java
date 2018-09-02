@@ -21,7 +21,7 @@ public class OutBoundHandlerB extends ChannelOutboundHandlerAdapter {
     public void handlerAdded(final ChannelHandlerContext ctx) {
         ctx.executor().schedule(() -> {
             ctx.channel().write("hello world");
-            ctx.write("hello world");
+           // ctx.write("hello world");
         }, 3, TimeUnit.SECONDS);
     }
 }

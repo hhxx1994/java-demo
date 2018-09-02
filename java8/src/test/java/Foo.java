@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class Foo {
 
     private volatile Bar bar = null;
@@ -14,7 +16,20 @@ public class Foo {
     }
 
     public static void main(String[] args) throws Exception{
-        System.out.println(new Foo().getBar());
+
+    }
+
+
+    @Test
+    public void test_aa(){
+        Enm e =null;
+        switch (e){
+            case A:
+                System.out.println("df");
+                break;
+            default:
+                System.out.println("cc");
+        }
     }
 
 }
