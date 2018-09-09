@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.alibaba.jvm.sandbox</groupId>
+        <artifactId>sandbox-module-starter</artifactId>
+        <version>1.0.14</version>
+    </parent>
+
+
     <groupId>com.hhx</groupId>
     <artifactId>java-demo</artifactId>
     <packaging>pom</packaging>
@@ -14,11 +21,14 @@
         <jcstress.version>0.2</jcstress.version>
 
         <lombok.version>1.16.10</lombok.version>
-        <guava.version>23.0</guava.version>
+        <guava.version>26.0-jre</guava.version>
         <cglib.version>3.2.5</cglib.version>
         <spring.version>4.3.14.RELEASE</spring.version>
         <commons-lang3.version>3.7</commons-lang3.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
+        <ognl.version>3.0.8</ognl.version>
+        <fastjson.version>1.${commons-io.version}7</fastjson.version>
+        <commons-io.version>2.4</commons-io.version>
     </properties>
     <modules>
         <module>java8</module>
@@ -129,14 +139,14 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.4</version>
+                <version>${commons-io.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.47</version>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <dependency>
@@ -144,6 +154,50 @@
                 <artifactId>jcstress-core</artifactId>
                 <version>${jcstress.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/ognl/ognl -->
+            <dependency>
+                <groupId>ognl</groupId>
+                <artifactId>ognl</artifactId>
+                <version>${ognl.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.sun/tools -->
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>tools</artifactId>
+                <version>1.8</version>
+                <scope>system</scope>
+                <systemPath>/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/lib/tools.jar</systemPath>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/net.sf.jopt-simple/jopt-simple -->
+            <dependency>
+                <groupId>net.sf.jopt-simple</groupId>
+                <artifactId>jopt-simple</artifactId>
+                <version>5.0.4</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.23.1-GA</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/one.util/streamex -->
+            <dependency>
+                <groupId>one.util</groupId>
+                <artifactId>streamex</artifactId>
+                <version>0.6.7</version>
+            </dependency>
+
+
+
+
+
+
+
 
 
         </dependencies>

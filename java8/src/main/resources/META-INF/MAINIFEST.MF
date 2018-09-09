@@ -1,0 +1,4 @@
+Agent-Class: com.tools.TestAgent
+Premain-Class: com.tools.TestAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true

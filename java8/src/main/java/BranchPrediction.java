@@ -4,7 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
  * @author huanghaoxing
  */
 public class BranchPrediction {
-    private static final int LENGTH = 100000;
+    private static final int LENGTH = 10000000;
 
     public static void main(String[] args) {
 
