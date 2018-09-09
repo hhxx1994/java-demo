@@ -120,6 +120,26 @@
             <artifactId>streamex</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.kemitix/jdk9to8 -->
+        <dependency>
+            <groupId>net.kemitix</groupId>
+            <artifactId>jdk9to8</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jool-java-8</artifactId>
+        </dependency>
+
+
+
 
 
 

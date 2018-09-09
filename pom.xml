@@ -77,12 +77,6 @@
                 <version>${spring.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/com.googlecode.javaewah/JavaEWAH -->
             <dependency>
                 <groupId>com.googlecode.javaewah</groupId>
@@ -127,12 +121,6 @@
                 <groupId>io.reactivex.rxjava2</groupId>
                 <artifactId>rxjava</artifactId>
                 <version>2.1.17</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.7</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
@@ -191,6 +179,37 @@
                 <artifactId>streamex</artifactId>
                 <version>0.6.7</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.8</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/net.kemitix/jdk9to8 -->
+            <dependency>
+                <groupId>net.kemitix</groupId>
+                <artifactId>jdk9to8</artifactId>
+                <version>0.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jool-java-8</artifactId>
+                <version>0.9.13</version>
+            </dependency>
+
+
+
+
+
 
 
 

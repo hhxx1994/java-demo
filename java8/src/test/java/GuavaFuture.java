@@ -23,20 +23,20 @@ public class GuavaFuture {
             }  
         });  
         //添加回调，回调由executor中的线程触发，但也可以指定一个新的线程  
-        Futures.addCallback(lf, new FutureCallback<String>() {
-  
-            //耗时任务执行失败后回调该方法  
-            @Override  
-            public void onFailure(Throwable t) {  
-                System.out.println("failure");  
-            }  
-              
-            //耗时任务执行成功后回调该方法  
-            @Override  
-            public void onSuccess(String s) {  
-                System.out.println("success " + s);  
-            }  
-        });  
+//        Futures.addCallback(lf, new FutureCallback<String>() {
+//
+//            //耗时任务执行失败后回调该方法
+//            @Override
+//            public void onFailure(Throwable t) {
+//                System.out.println("failure");
+//            }
+//
+//            //耗时任务执行成功后回调该方法
+//            @Override
+//            public void onSuccess(String s) {
+//                System.out.println("success " + s);
+//            }
+//        });
           
         //主线程可以继续做其他的工作  
         System.out.println("main thread is running");  
