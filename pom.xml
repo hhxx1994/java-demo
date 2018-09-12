@@ -203,21 +203,15 @@
             <dependency>
                 <groupId>org.jooq</groupId>
                 <artifactId>jool-java-8</artifactId>
-                <version>0.9.13</version>
+                <version>0.9.14</version>
             </dependency>
 
-
-
-
-
-
-
-
-
-
-
-
-
+            <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>9.4.12.v20180830</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
