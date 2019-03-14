@@ -1,7 +1,9 @@
+import com.google.common.collect.Lists;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class UnSafeTest {
 
@@ -27,6 +29,9 @@ public class UnSafeTest {
                 UNSAFE.putInt(user, ageOffset, i);
             }
             System.out.println(System.currentTimeMillis()-s2);
+
+            List<String> list = Lists.newArrayList();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
