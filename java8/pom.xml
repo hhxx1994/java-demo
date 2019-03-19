@@ -149,6 +149,21 @@
             <artifactId>cli</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.infonautika.streamjoin</groupId>
+            <artifactId>streamjoin</artifactId>
+        </dependency>
+
 
     </dependencies>
 

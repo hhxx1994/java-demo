@@ -30,6 +30,8 @@
         <fastjson.version>1.${commons-io.version}7</fastjson.version>
         <commons-io.version>2.4</commons-io.version>
         <cli.version>1.0.1</cli.version>
+        <aspectjrt.version>1.9.2</aspectjrt.version>
+        <streamjoin.version>1.0.0</streamjoin.version>
     </properties>
     <modules>
         <module>java8</module>
@@ -225,6 +227,27 @@
                 <artifactId>tls-common</artifactId>
                 <version>${cli.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectjrt.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjtools</artifactId>
+                <version>${aspectjrt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.infonautika.streamjoin</groupId>
+                <artifactId>streamjoin</artifactId>
+                <version>${streamjoin.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

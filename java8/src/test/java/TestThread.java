@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.util.Objects;
-
 /**
  * @author hhx
  * @date 2017/11/5 20:09
@@ -45,11 +43,11 @@ public class TestThread {
 
     @Test
    public void testThreadStopUnsafe(){
-        new Thread(()->{
-            while(!Objects.equals(user.getName(),user.getId())){
-                System.out.println(user.toString());
-            }
-        }).start();
+//        new Thread(()->{
+//            while(!Objects.equals(user.getName(),user.getId())){
+//                System.out.println(user.toString());
+//            }
+//        }).start();
    }
    @Test
    public void testStartTwoTimes(){

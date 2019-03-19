@@ -29,7 +29,7 @@ public class FinalTest {
     @Test
     public void test_invoke() throws Throwable {
         MethodType mt = getMT();
-        System.out.println(MethodHandles.lookup().findVirtual(String.class, "equalsIgnoreCase", mt).bindTo("aa").invoke( "AA"));
+        System.out.println(MethodHandles.lookup().findVirtual(String.class, "equalsIgnoreCase", mt).bindTo("aa").invoke( "aspectj.AA"));
     }
 
     private MethodType getMT() {
