@@ -13,6 +13,7 @@ public class Java8Init {
     public static void main(String[] args) {
         // subclass
         List<String> list = new ArrayList<String>() {{
+            // constructor
             add("q");
             add("b");
         }};

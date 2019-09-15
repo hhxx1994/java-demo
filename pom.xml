@@ -257,6 +257,13 @@
             </dependency>
 
 
+            <!-- https://mvnrepository.com/artifact/net.gleamynode/netty2 -->
+            <dependency>
+                <groupId>net.gleamynode</groupId>
+                <artifactId>netty2</artifactId>
+                <version>1.9.2</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
