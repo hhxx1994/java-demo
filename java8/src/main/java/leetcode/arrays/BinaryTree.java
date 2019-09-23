@@ -80,6 +80,23 @@ public class BinaryTree {
 
     }
 
+    public static void iterativePreorder2(BinaryTreeNode node) {
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        if(node != null){
+            stack.push(node);
+        }
+        while (!stack.isEmpty()) {
+            node = stack.pop();
+            visit(node);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+    }
+
     private static void visitAlongLeftBranch(BinaryTreeNode node, Stack<BinaryTreeNode> stack) {
         while (node != null) {
             visit(node);
@@ -175,6 +192,8 @@ public class BinaryTree {
         preOrder(root);
         System.out.println("二叉树先序遍历非递归");
         iterativePreorder(root);
+        System.out.println("二叉树先序遍历非递归2");
+        iterativePreorder2(root);
         System.out.println("二叉树中序遍历");
         inOrder(root);
         System.out.println("二叉树中序遍历非递归");
@@ -187,5 +206,6 @@ public class BinaryTree {
         iterativePostOrderByTwoStacks(root);
         System.out.println("二叉树层树序遍历");
         layerTraversal(root);
+
     }
 }
