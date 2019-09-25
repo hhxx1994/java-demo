@@ -82,7 +82,7 @@ public class BinaryTree {
 
     public static void iterativePreorder2(BinaryTreeNode node) {
         Stack<BinaryTreeNode> stack = new Stack<>();
-        if(node != null){
+        if (node != null) {
             stack.push(node);
         }
         while (!stack.isEmpty()) {
@@ -141,6 +141,22 @@ public class BinaryTree {
      * 非递归使用双栈实现二叉树后序遍历
      */
     public static void iterativePostOrderByTwoStacks(BinaryTreeNode root) {
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        Stack<BinaryTreeNode> temp = new Stack<>();
+        temp.push(root);
+        while (!temp.isEmpty()) {
+            BinaryTreeNode treeNode = temp.pop();
+            stack.push(treeNode);
+            if (treeNode.left != null) {
+                temp.push(treeNode.left);
+            }
+            if (treeNode.right != null) {
+                temp.push(treeNode.right);
+            }
+        }
+        while (!stack.isEmpty()) {
+            visit(stack.pop());
+        }
 
     }
 
