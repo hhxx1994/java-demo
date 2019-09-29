@@ -4,6 +4,7 @@ import javafx.util.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author huanghaoxing
@@ -59,5 +60,30 @@ public class MinDepth {
             }
         }
         return height;
+    }
+
+    public int minDepth3(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
+        stack.add(new Pair<>(root, 1));
+        Integer minDepth = Integer.MAX_VALUE;
+        while (!stack.isEmpty()) {
+            Pair<TreeNode, Integer> pair = stack.pop();
+            TreeNode treeNode = pair.getKey();
+            Integer height = pair.getValue();
+            if (treeNode.right == null && treeNode.left == null) {
+                minDepth = Math.min(height, minDepth);
+            }
+            if (treeNode.right != null) {
+                stack.push(new Pair<>(treeNode.right, height + 1));
+            }
+            if (treeNode.left != null) {
+                stack.push(new Pair<>(treeNode.left, height + 1));
+            }
+        }
+        return minDepth;
+
     }
 }
