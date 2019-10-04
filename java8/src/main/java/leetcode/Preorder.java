@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author huanghaoxing
@@ -37,5 +38,29 @@ public class Preorder {
                 preorder(child, list);
             }
         }
+    }
+
+
+    public List<Integer> preorder2(Node root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<Node> stack = new Stack<>();
+        while (true) {
+            while (root != null) {
+                list.add(root.val);
+                if (!root.children.isEmpty()) {
+                    for (int i = root.children.size() - 1; i > 0; i--) {
+                        stack.push(root.children.get(i));
+                    }
+                    root = root.children.get(0);
+                } else {
+                    root = null;
+                }
+            }
+            if (stack.isEmpty()) {
+                break;
+            }
+            root = stack.pop();
+        }
+        return list;
     }
 }
