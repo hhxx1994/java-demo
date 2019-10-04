@@ -63,4 +63,23 @@ public class Preorder {
         }
         return list;
     }
+
+    public List<Integer> preorder3(Node root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            list.add(node.val);
+            if (!node.children.isEmpty()) {
+                for (int i = node.children.size() - 1; i >= 0; i--) {
+                    stack.push(node.children.get(i));
+                }
+            }
+        }
+        return list;
+    }
 }
