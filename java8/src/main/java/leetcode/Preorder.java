@@ -1,8 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author huanghaoxing
@@ -82,4 +80,22 @@ public class Preorder {
         }
         return list;
     }
+
+    public List<Integer> layerTraversal(Node root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            list.add(node.val);
+            if (!node.children.isEmpty()) {
+                queue.addAll(node.children);
+            }
+        }
+        return list;
+    }
+
 }
