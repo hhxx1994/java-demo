@@ -7,15 +7,7 @@ import java.util.List;
  * @author huanghaoxing
  */
 public class Array2Tree {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode buildTree(Integer[] arrs) {
         if (arrs == null || arrs.length == 0) {
@@ -33,6 +25,9 @@ public class Array2Tree {
                     treeNode.left = new TreeNode(left);
                     temp.add(treeNode.left);
                 }
+                if(index >= arrs.length){
+                    break;
+                }
                 Integer right = arrs[index++];
                 if (right != null) {
                     treeNode.right = new TreeNode(right);
@@ -40,7 +35,9 @@ public class Array2Tree {
                 }
             }
             list = temp;
+
         }
+
         return root;
     }
 
