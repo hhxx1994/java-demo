@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author huanghaoxing
+ * 背包问题
  */
 public class Loading {
     int c = 750;    //背包容量

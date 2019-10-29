@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author huanghaoxing
- * c
+ * 邮差问题
  */
 public class Bttsp {
     public int n;//图G的顶点数
