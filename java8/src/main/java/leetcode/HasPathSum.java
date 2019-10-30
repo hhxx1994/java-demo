@@ -38,12 +38,13 @@ public class HasPathSum {
 
     /**
      * bsf
+     *
      * @param root
      * @param sum
      * @return
      */
     public boolean hasPathSum2(TreeNode root, int sum) {
-        if(root == null){
+        if (root == null) {
             return false;
         }
         Queue<Node> queue = new LinkedList<>();
@@ -75,5 +76,34 @@ public class HasPathSum {
             this.sum = sum;
         }
     }
+
+    public boolean hasPathSum3(TreeNode root, int sum) {
+        if (root == null) {
+            return false;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Integer> integers = new LinkedList<>();
+        queue.add(root);
+        integers.add(0);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            Integer num = integers.poll();
+            if (node.right == null && node.left == null) {
+                if (sum == node.val + num) {
+                    return true;
+                }
+            }
+            if (node.left != null) {
+                queue.add(node.left);
+                integers.add(num + node.val);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+                integers.add(num + node.val);
+            }
+        }
+        return false;
+    }
+
 
 }
