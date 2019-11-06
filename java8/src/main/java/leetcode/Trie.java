@@ -10,6 +10,7 @@ public class Trie {
     static class TrieNode {
         char c;
         boolean isEnd;
+        int count;
         TrieNode[] child;
 
         public TrieNode() {
@@ -40,6 +41,7 @@ public class Trie {
                 trieNode.c = word.charAt(i);
             }
             node = node.child[index];
+            node.count++;
         }
         node.isEnd = true;
 
@@ -76,6 +78,28 @@ public class Trie {
      */
     public boolean startsWith(String prefix) {
         return searchPrefix(prefix) != null;
+
+    }
+
+    public void delete(String word) {
+        if (word == null || word.length() == 0) {
+            return;
+        }
+        if (search(word)) {
+            TrieNode node = root;
+            for (int i = 0; i < word.length(); i++) {
+                int index = word.charAt(i) - 'a';
+                if (node.child[index].count == 1) {
+                    node.child[index] = null;
+                    return;
+                } else {
+                    node.child[index].count--;
+                }
+                node = node.child[index];
+            }
+            node.isEnd = false;
+
+        }
 
     }
 }
