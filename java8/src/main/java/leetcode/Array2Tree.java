@@ -25,7 +25,7 @@ public class Array2Tree {
                     treeNode.left = new TreeNode(left);
                     temp.add(treeNode.left);
                 }
-                if(index >= arrs.length){
+                if (index >= arrs.length) {
                     break;
                 }
                 Integer right = arrs[index++];
@@ -40,5 +40,29 @@ public class Array2Tree {
 
         return root;
     }
+
+    /**
+     * 递归去构造一棵树
+     *
+     * @param arrs
+     * @return
+     */
+
+    public TreeNode buildTree2(int[] arrs) {
+        return tree(0, arrs);
+    }
+
+    public TreeNode tree(int index, int[] arrs) {
+        if (index >= arrs.length) {
+            return null;
+        }
+        TreeNode node = new TreeNode(arrs[index]);
+        TreeNode left = tree(index << 1 | 1, arrs);
+        TreeNode right = tree(index << 2, arrs);
+        node.left = left;
+        node.right = right;
+        return node;
+    }
+
 
 }
