@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author huanghaoxing
@@ -48,20 +50,47 @@ public class Array2Tree {
      * @return
      */
 
-    public TreeNode buildTree2(int[] arrs) {
+    public TreeNode buildTree2(Integer[] arrs) {
         return tree(0, arrs);
     }
 
-    public TreeNode tree(int index, int[] arrs) {
+    public TreeNode tree(int index, Integer[] arrs) {
         if (index >= arrs.length) {
             return null;
         }
         TreeNode node = new TreeNode(arrs[index]);
         TreeNode left = tree(index << 1 | 1, arrs);
-        TreeNode right = tree(index << 2, arrs);
+        TreeNode right = tree((index + 1) << 1, arrs);
         node.left = left;
         node.right = right;
         return node;
+    }
+
+    public List<Integer> travel(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            list.add(node.val);
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        return list;
+    }
+
+
+    public static void main(String[] args) {
+        Array2Tree array2Tree = new Array2Tree();
+        TreeNode treeNode = array2Tree.buildTree2(new Integer[]{3, 9, 20, null, null, 15, 7});
+        System.out.println(array2Tree.travel(treeNode));
     }
 
 
