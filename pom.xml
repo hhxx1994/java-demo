@@ -31,6 +31,7 @@
         <cli.version>1.0.1</cli.version>
         <aspectjrt.version>1.9.2</aspectjrt.version>
         <streamjoin.version>1.0.0</streamjoin.version>
+        <spring.version>2.5</spring.version>
     </properties>
     <modules>
         <module>java8</module>
@@ -239,6 +240,17 @@
                 <groupId>net.gleamynode</groupId>
                 <artifactId>netty2</artifactId>
                 <version>1.9.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
             </dependency>
 
 
