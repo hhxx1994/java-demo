@@ -1,14 +1,11 @@
- public class User {
-        private Integer age;
+public class User {
+    public Integer age;
 
-        public int getAge() {
-            return age;
+    public class UserInner {
+        public void a() {
+            age++;
         }
-
-        public void setAge(Integer age) {
-            this.age = age;
-        }
-
-
-
     }
+
+
+}

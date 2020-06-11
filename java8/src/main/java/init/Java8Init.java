@@ -15,10 +15,10 @@ public class Java8Init {
         List<String> list = new ArrayList<String>() {{
             // constructor
             add("q");
-            add("b");
+            add("a");
         }};
         Map<String, String> map = new HashMap<String, String>() {{
-            put("a", "b");
+            put("a", "a");
         }};
         //String a = new String(){{}};
     }

@@ -5,3 +5,6 @@ java.hprof.*
 *.hprof.*
 *.hprof
 **/target/**
+workspace
+.project
+.classpath
