@@ -11,8 +11,14 @@ public class Graph {
     this.v = v;
   }
 
-  public int[] adj(int v){
-    return this.v[v];
+  public Iterable<Integer> adj(int v){
+    List<Integer> adj = new ArrayList<>();
+    for (int i = 0; i < this.v[v].length; i++) {
+      if(this.v[v][i] == 1){
+        adj.add(i);
+      }
+    }
+    return adj;
   }
 
   public List<Integer> preorderTraversal(){
@@ -30,6 +36,12 @@ public class Graph {
         dfs(w,list,visited);
       }
     }
+  }
+
+  public static void main(String[] args) {
+    int[][] g = {{0,1,1,0},{1,0,0,1},{1,0,0,1},{0,1,1,0}};
+    Graph graph = new Graph(g);
+    System.out.println(graph.preorderTraversal());
   }
 
 
