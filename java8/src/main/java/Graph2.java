@@ -10,6 +10,7 @@ public class Graph2 {
   int size;
   List<Integer> list = new ArrayList<>();
   boolean[] visited ;
+  int ccount = 0;
   public Graph2(HashSet<Integer>[] node , int size){
     this.node = node;
     this.size = size;
@@ -24,6 +25,7 @@ public class Graph2 {
     for (int i = 0; i < size; i++) {
       if(!visited[i]){
         dfs(i);
+        ccount++;
       }
     }
     return list;
