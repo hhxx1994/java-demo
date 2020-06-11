@@ -21,7 +21,11 @@ public class Graph2 {
   }
 
   public Iterable<Integer> preorderTraversal(){
-    dfs(0);
+    for (int i = 0; i < size; i++) {
+      if(!visited[i]){
+        dfs(i);
+      }
+    }
     return list;
   }
 

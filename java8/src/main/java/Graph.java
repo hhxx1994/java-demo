@@ -24,7 +24,11 @@ public class Graph {
   public List<Integer> preorderTraversal(){
     List<Integer> result = new ArrayList<>();
     boolean[] visited = new boolean[this.v.length];
-    dfs(0,result,visited);
+    for (int i = 0; i < this.v.length; i++) {
+      if(!visited[i]){
+        dfs(i,result,visited);
+      }
+    }
     return result;
   }
 
