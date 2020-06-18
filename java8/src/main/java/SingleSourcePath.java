@@ -1,47 +1,70 @@
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
  * @author huanghaoxing
  */
-public class GraphBFS {
-  HashSet<Integer>[] node;
+public class SingleSourcePath {
+
   int size;
   boolean[] visited;
+  HashSet<Integer>[] node;
+  int[] pre;
+  int source;
 
-
-  public GraphBFS(HashSet<Integer>[] node, int size) {
-    this.node = node;
+  public SingleSourcePath(HashSet<Integer>[] node, int size, int source) {
     this.size = size;
+    this.node = node;
     visited = new boolean[size];
+    pre = new int[size];
     for (int i = 0; i < size; i++) {
-      if (!visited[i]) {
-        bfs(i);
-      }
+      pre[i] = -1;
     }
+    this.source = source;
+    bfs(source);
   }
 
-  public void bfs(int v) {
+  private void bfs(int source) {
     Queue<Integer> queue = new LinkedList<>();
-    queue.add(v);
-    visited[v] = true;
+    queue.add(source);
+    visited[source] = true;
+    pre[source] = source;
     while (!queue.isEmpty()) {
       Integer node = queue.remove();
       for (Integer w : adj(node)) {
         if (!visited[w]) {
           queue.add(w);
           visited[w] = true;
+          pre[w] = node;
         }
       }
     }
   }
 
 
+  private boolean isConnected(int dest){
+    return visited[dest];
+  }
+
+  public List<Integer> path(int desc){
+    List<Integer> ret = new LinkedList<>();
+
+    if (isConnected(desc)) {
+      int pre = desc;
+      ret.add(0,pre);
+      while(pre != this.source){
+        pre = this.pre[pre];
+        ret.add(0,pre);
+      }
+    }
+    return ret;
+  }
+
   public Iterable<Integer> adj(int i) {
     return node[i];
   }
-
 
   public static void main(String[] args) {
     HashSet<Integer>[] node = new HashSet[4];
@@ -66,8 +89,12 @@ public class GraphBFS {
     node3.add(2);
     node[3] = node3;
 
-    GraphBFS graph2 = new GraphBFS(node, 4);
-
-
+    SingleSourcePath singleSourcePath = new SingleSourcePath(node, 4, 0);
+    List<Integer> path = singleSourcePath.path(3);
+    for (Integer w : path) {
+      System.out.println(w);
+    }
   }
+
+
 }
