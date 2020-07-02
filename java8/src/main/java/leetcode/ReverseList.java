@@ -26,6 +26,29 @@ public class ReverseList {
         }
     }
 
+  public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+      ListNode temp = new ListNode(-1);
+      ListNode head = temp;
+      while(l1 != null && l2 != null){
+        if(l1.val < l2.val){
+          temp.next = l1;
+          l1 = l1.next;
+          temp = temp.next;
+        }else{
+          temp.next = l2;
+          l2 = l2.next;
+          temp = temp.next;
+        }
+      }
+      if(l1 != null)
+        temp.next = l1;
+      else
+        temp.next = l2;
+
+      return head.next;
+  }
+
+
     public static void main(String[] args) {
         ReverseList reverseList = new ReverseList();
         //1->2->3->4->5->NULL
@@ -39,7 +62,10 @@ public class ReverseList {
         three.next = four;
         four.next = five;
         ListNode listNode = reverseList.reverseList(one);
-        System.out.println(listNode);
+        while(listNode != null){
+          System.out.println(listNode.val);
+          listNode = listNode.next;
+        }
 
 
     }
