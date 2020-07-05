@@ -36,6 +36,16 @@ public class Graph {
     }
   }
 
+  public Integer degree(int v){
+    return adj[v].size();
+  }
+
+  public void deleteEdge(int v , int w){
+    adj(v).remove(w);
+    adj(w).remove(v);
+    E--;
+  }
+
   public Set<Integer> adj(int i){
     return adj[i];
   }
