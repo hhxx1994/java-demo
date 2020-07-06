@@ -1,14 +1,13 @@
-package leetcode;
+package graph;
 
 /**
  * @author huanghaoxing
  */
-public class UF {
-
+public class UnionFind {
   int[] parent;
   int[] rank;
 
-  public UF(int size) {
+  public UnionFind(int size) {
     parent = new int[size];
     rank = new int[size];
     for (int i = 0; i < size; i++) {
@@ -17,14 +16,11 @@ public class UF {
     }
   }
 
-  public boolean isConnected(int p, int q) {
-    return find(p) == find(q);
+  public boolean isConnect(int q, int p) {
+    return false;
   }
 
   public int find(int p) {
-    if(p < 0 || p> parent.length){
-      throw new IllegalArgumentException("...");
-    }
     while (p != parent[p]) {
       parent[p] = parent[parent[p]];
       p = parent[p];
@@ -32,17 +28,14 @@ public class UF {
     return p;
   }
 
-  public void union(int p, int q) {
-    int pRoot = find(p);
+  public void union(int q, int p) {
     int qRoot = find(q);
-    if(pRoot == qRoot){
-      return;
-    }
-    if(rank[pRoot] < rank[qRoot]){
+    int pRoot = find(p);
+    if (rank[qRoot] < rank[pRoot]) {
+      parent[qRoot] = pRoot;
+    } else if (rank[pRoot] < rank[qRoot]) {
       parent[pRoot] = qRoot;
-    }else if(rank[qRoot] < rank[pRoot]){
-      parent[qRoot]  = pRoot;
-    }else{
+    } else {
       parent[pRoot] = qRoot;
       rank[qRoot] += 1;
     }
