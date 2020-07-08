@@ -28,8 +28,10 @@ public class DirectedGraph {
       int w = scanner.nextInt();
       Set<Integer> adjVertex = adj.computeIfAbsent(v, k -> new HashSet<>());
       adjVertex.add(w);
-      inDegree.put(w, inDegree.getOrDefault(w, 0) + 1);
+      inDegree.put(v, inDegree.getOrDefault(v, 0));
       outDegree.put(v, outDegree.getOrDefault(v, 0) + 1);
+      inDegree.put(w, inDegree.getOrDefault(w, 0) + 1);
+      outDegree.put(w, outDegree.getOrDefault(w, 0));
     }
   }
 
