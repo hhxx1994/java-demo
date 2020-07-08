@@ -29,7 +29,7 @@ public class DirectedGraph {
       Set<Integer> adjVertex = adj.computeIfAbsent(v, k -> new HashSet<>());
       adjVertex.add(w);
       inDegree.put(w, inDegree.getOrDefault(w, 0) + 1);
-      outDegree.put(v, outDegree.getOrDefault(w, 0) + 1);
+      outDegree.put(v, outDegree.getOrDefault(v, 0) + 1);
     }
   }
 
@@ -39,6 +39,13 @@ public class DirectedGraph {
 
   public int outDegree(int v) {
     return outDegree.getOrDefault(v, 0);
+  }
+
+  public void deleteEdge(int v, int w) {
+    E--;
+    adj.get(v).remove(w);
+    outDegree.put(v, outDegree.get(v) - 1);
+    inDegree.put(w, inDegree.get(w) - 1);
   }
 
 }
