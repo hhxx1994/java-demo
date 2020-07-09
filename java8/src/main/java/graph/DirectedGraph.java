@@ -15,6 +15,9 @@ public class DirectedGraph {
   Map<Integer, Integer> inDegree;
   Map<Integer, Integer> outDegree;
 
+  private DirectedGraph() {
+  }
+
   public DirectedGraph(String fileName) throws FileNotFoundException {
     File file = new File(fileName);
     Scanner scanner = new Scanner(file);
@@ -48,6 +51,26 @@ public class DirectedGraph {
     adj.get(v).remove(w);
     outDegree.put(v, outDegree.get(v) - 1);
     inDegree.put(w, inDegree.get(w) - 1);
+  }
+
+  public DirectedGraph reverseGraph() {
+    DirectedGraph graph = new DirectedGraph();
+    graph.V = V;
+    graph.E = E;
+    graph.adj = new HashMap<>();
+    graph.inDegree = new HashMap<>();
+    graph.outDegree = new HashMap<>();
+    for (Integer v : adj.keySet()) {
+      for (Integer w : adj.get(v)) {
+        Set<Integer> vertex = graph.adj.computeIfAbsent(w, k -> new HashSet<>());
+        vertex.add(v);
+        graph.inDegree.put(w, graph.inDegree.getOrDefault(w, 0));
+        graph.inDegree.put(v, graph.inDegree.getOrDefault(v, 0) + 1);
+        graph.outDegree.put(w, graph.outDegree.getOrDefault(w, 0) + 1);
+        graph.outDegree.put(v, graph.outDegree.getOrDefault(v, 0));
+      }
+    }
+    return graph;
   }
 
 }
