@@ -14,6 +14,8 @@ public class DirectedGraph {
   Map<Integer, Set<Integer>> adj;
   Map<Integer, Integer> inDegree;
   Map<Integer, Integer> outDegree;
+  List<Integer> post = new ArrayList<>();
+  Set<Integer> visited = new HashSet<>();
 
   private DirectedGraph() {
   }
@@ -31,6 +33,7 @@ public class DirectedGraph {
       int w = scanner.nextInt();
       Set<Integer> adjVertex = adj.computeIfAbsent(v, k -> new HashSet<>());
       adjVertex.add(w);
+      adj.computeIfAbsent(w, k -> new HashSet<>());
       inDegree.put(v, inDegree.getOrDefault(v, 0));
       outDegree.put(v, outDegree.getOrDefault(v, 0) + 1);
       inDegree.put(w, inDegree.getOrDefault(w, 0) + 1);
@@ -71,6 +74,29 @@ public class DirectedGraph {
       }
     }
     return graph;
+  }
+
+  public List<Integer> post() {
+    for (Integer v : adj.keySet()) {
+      if (!visited.contains(v)) {
+        postTraversal(v);
+      }
+    }
+    return post;
+  }
+
+
+  public void postTraversal(int v) {
+    visited.add(v);
+    Set<Integer> vertex = adj.get(v);
+    if (vertex != null) {
+      for (Integer w : vertex) {
+        if (!visited.contains(w)) {
+          postTraversal(w);
+        }
+      }
+    }
+    post.add(v);
   }
 
 }
