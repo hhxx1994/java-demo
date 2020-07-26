@@ -20,7 +20,7 @@ public class ReverseList2 {
             return head;
         }
         ListNode last = reverseList(head.next);
-        head.next.next = head.next;
+        head.next.next = head;
         head.next = null;
         return last;
     }
