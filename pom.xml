@@ -27,7 +27,7 @@
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
         <ognl.version>3.0.8</ognl.version>
         <fastjson.version>1.${commons-io.version}7</fastjson.version>
-        <commons-io.version>2.4</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <cli.version>1.0.1</cli.version>
         <aspectjrt.version>1.9.2</aspectjrt.version>
         <streamjoin.version>1.0.0</streamjoin.version>
